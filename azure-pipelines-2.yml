@@ -11,14 +11,7 @@ stages:
     pool:
      name: Default
      demands: mycap
-    jobs:
-      - job: Print
-        
-        steps:
-          - script: echo '****************'
-          - script: echo 'starting with test'
-          - script: echo '*****************'
-           
+    jobs:   
       - job: Build
         
 
@@ -39,7 +32,7 @@ stages:
            configuration: '$(buildConfiguration)'
 
         - script: echo 'Building application'
-        
+        - task: PublishBuildArtifacts@1
   - stage: Publish
     jobs:
        - job: Test
@@ -58,4 +51,4 @@ stages:
               platform: '$(buildPlatform)'
               configuration: '$(buildConfiguration)'
            - script: echo 'Testing application'
-           - task: PublishBuildArtifacts@1
+           
