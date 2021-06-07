@@ -9,7 +9,7 @@ trigger:
 pool:
   name: Default
   demands:
-  - agent.name -equals DESKTOP-TCB7QS9
+  - mycapabilities
 
 variables:
   solution: '**/*.sln'
